@@ -1,6 +1,6 @@
 # Design Patterns Implementation
 
-This repository demonstrates various design patterns implemented in C#. Each pattern serves as a practical example of solving common software design challenges.
+This repository demonstrates various design patterns implemented in javascript. Each pattern serves as a practical example of solving common software design challenges.
 
 ## Project Structure
 
