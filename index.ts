@@ -1,33 +1,74 @@
-abstract class BaseLogger {
-  // Make registry static on BaseLogger to be accessible from all subclasses
-  private static registry = new Map<any, BaseLogger>();
-
-  protected constructor() {
-    console.log("BaseLogger initialized.");
-    // Protected constructor to prevent direct instantiation of BaseLogger
-  }
-
-  public static getInstance(this: any): BaseLogger {
-    const key = this;
-    if (!BaseLogger.registry.has(key)) {
-      BaseLogger.registry.set(key, new this());
-    }
-    return BaseLogger.registry.get(key) as BaseLogger;
-  }
-
-  public abstract log(message: string): void;
+interface Smartphone {
+  getBrand(): string;
 }
 
-class ConsoleLogger extends BaseLogger {
-  protected constructor() {
-    super();
-    console.log("ConsoleLogger initialized.");
-  }
+interface Smartwatch {
+  getBrand(): string;
+}
 
-  public log(message: string): void {
-    console.log(`ConsoleLogger: ${message}`);
+interface Earbuds {
+  getBrand(): string;
+}
+
+class Iphone implements Smartphone {
+  getBrand(): string {
+    return "iPhone";
   }
 }
 
-const consoleLogger = ConsoleLogger.getInstance();
-consoleLogger.log("Hello, World!");
+class AppleWatch implements Smartwatch {
+  getBrand(): string {
+    return "Apple Watch";
+  }
+}
+
+class AirPods implements Earbuds {
+  getBrand(): string {
+    return "Airpods";
+  }
+}
+
+interface EcosystemFactory {
+  createPhone(): Smartphone;
+  createWatch(): Smartwatch;
+  createEarbuds(): Earbuds;
+}
+
+class AppleEcosystemFactory implements EcosystemFactory {
+  createPhone(): Smartphone {
+    return new Iphone();
+  }
+
+  createWatch(): Smartwatch {
+    return new AppleWatch();
+  }
+
+  createEarbuds(): Earbuds {
+    return new AirPods();
+  }
+}
+
+// Usage (ordering an entire ecosystem)
+function orderEcosystem(factory: EcosystemFactory) {
+  const phone = factory.createPhone();
+  const watch = factory.createWatch();
+  const earbuds = factory.createEarbuds();
+
+  console.log(`Ordering ${phone.getBrand()} ecosystem:`);
+  console.log(phone.getBrand());
+  console.log(watch.getBrand());
+  console.log(earbuds.getBrand());
+  console.log("---");
+}
+
+try {
+  // Order Apple ecosystem
+  const appleFactory = new AppleEcosystemFactory();
+  orderEcosystem(appleFactory);
+} catch (error) {
+  if (error instanceof Error) {
+    console.log(error.message);
+  } else {
+    console.log("An unknown error occured");
+  }
+}
