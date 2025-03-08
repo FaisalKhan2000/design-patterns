@@ -1,9 +1,3 @@
-# Comprehensive Guide to the Singleton Design Pattern in TypeScript
-
-This guide covers the Singleton design pattern in detail, providing
-explanations, TypeScript code examples, variations, considerations, and best
-practices. All explanations are within TypeScript comments.
-
 ## 1. Introduction to the Singleton Pattern
 
 The Singleton pattern is a creational design pattern that ensures a class has
