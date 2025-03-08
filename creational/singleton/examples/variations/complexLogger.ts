@@ -18,9 +18,9 @@ abstract class BaseLogger {
 
   // Simplify the type signature to avoid the constructor visibility issue
   public static getInstance<T extends BaseLogger>(this: any): T {
-    const key = this;
+    const key = this; // 'this' refers to the class calling getInstance()
     if (!BaseLogger.registry.has(key)) {
-      BaseLogger.registry.set(key, new this());
+      BaseLogger.registry.set(key, new this()); // Create instance if not exists
     }
     return BaseLogger.registry.get(key) as T;
   }

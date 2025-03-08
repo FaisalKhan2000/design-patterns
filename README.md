@@ -1,5 +1,7 @@
 # Design Patterns Implementation
 
+https://roadmap.sh/guides/design-patterns-for-humans
+
 This repository demonstrates various design patterns implemented in javascript. Each pattern serves as a practical example of solving common software design challenges.
 
 ## Project Structure
