@@ -2,6 +2,8 @@
 
 Prototype Pattern: The Clone Factory 🏭
 Definition
+The Prototype pattern is a creational design pattern that allows cloning existing objects instead of creating new ones, which can be useful for performance optimization and avoiding repetitive initialization logic
+
 The Prototype pattern is a creational design pattern that allows objects to be cloned rather than created from scratch. This is useful when object creation is expensive, or we want to create multiple objects with slight variations.
 
 📌 Scenario: The Smartphone Clone Factory

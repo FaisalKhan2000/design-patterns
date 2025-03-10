@@ -3,6 +3,9 @@
 Simple Factory: The Smartphone Factory
 
 Definition
+
+A Simple Factory is a creational pattern where a single method or class is responsible for creating objects, encapsulating the instantiation logic to improve maintainability and reduce code duplication
+
 The Simple Factory pattern is a creational design pattern that provides a single, centralized class or method (the "factory") responsible for creating objects based on input parameters. It encapsulates object creation logic, allowing clients to request objects without knowing the details of how they’re instantiated. While not one of the official Gang of Four design patterns, it’s a lightweight and practical approach for basic object creation scenarios.
 
 Scenario

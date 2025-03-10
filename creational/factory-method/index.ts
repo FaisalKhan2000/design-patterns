@@ -3,6 +3,9 @@
 Factory Method: The Smartphone Factory Expands
 
 Definition
+
+Factory Method is a creational design pattern that provides an interface for creating objects in a superclass but allows subclasses to alter the type of objects that will be created.
+
 The Factory Method pattern is a creational design pattern that defines an interface (or abstract class) for creating objects, but lets subclasses decide which specific class to instantiate. Unlike the Simple Factory, where a single factory handles all object creation, the Factory Method pattern delegates object creation to specialized factories, each responsible for producing a specific type of product. This makes the system more flexible, scalable, and easier to extend (e.g., adding new phone brands without modifying existing code).
 
 Scenario

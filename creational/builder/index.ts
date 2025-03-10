@@ -2,6 +2,8 @@
 
 Builder: The Custom Smartphone Workshop
 Definition
+The Builder pattern is a creational design pattern that allows step-by-step construction of complex objects, ensuring readability, flexibility, and avoiding constructor overloads
+
 The Builder pattern is a creational design pattern used to construct complex objects step by step. Instead of using a large constructor with many parameters, it allows us to create objects in a structured and readable way.
 
 Scenario

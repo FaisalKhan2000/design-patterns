@@ -2,6 +2,9 @@
 
 Abstract Factory: The Smartphone Ecosystem Empire
 Definition
+
+Abstract Factory is a creational design pattern that provides an interface for creating families of related objects without specifying their concrete classes.
+
 The Abstract Factory pattern is a creational design pattern that provides an interface for creating families of related or dependent objects without specifying their concrete classes. Unlike the Factory Method, which focuses on creating a single type of product (e.g., smartphones), the Abstract Factory creates a whole ecosystem of related products (e.g., smartphones, smartwatches, and earbuds) that work together. It ensures consistency across product families while allowing easy swapping of entire ecosystems.
 
 Scenario
