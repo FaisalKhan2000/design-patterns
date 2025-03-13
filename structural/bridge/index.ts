@@ -1,10 +1,30 @@
+/*
+
+🎯 What is the Bridge Pattern?
+The Bridge Pattern is a structural design pattern that decouples an abstraction from its implementation, allowing them to evolve independently.
+
+Key Benefits:
+✔ Allows different parts of the system (e.g., a remote control and a device) to change separately.
+✔ Helps avoid class explosion caused by multiple variations of abstractions and implementations.
+✔ Improves scalability and maintainability.
+
+📺 Real-World Example: Universal Remote & Home Devices
+Imagine you have a universal remote that can control multiple devices like TVs and DVD players.
+
+The remote control is the abstraction (interface that users interact with).
+The TV/DVD player is the implementation (actual device behavior).
+The bridge is the link between the remote and the device, allowing them to vary independently.
+
+*/
+
+// Implementation interface for devices
 interface Device {
   powerOn(): string;
   powerOff(): string;
   setChannel(channel: number): string;
 }
 
-// concerete implementation
+// Concrete implementation for a TV
 class TV implements Device {
   public powerOn(): string {
     return "TV is powered ON.";
@@ -15,17 +35,18 @@ class TV implements Device {
   }
 
   public setChannel(channel: number): string {
-    return `TV Channel set to ${channel}.`;
+    return `TV channel set to ${channel}.`;
   }
 }
 
+// Concrete implementation for a DVD
 class DVD implements Device {
   public powerOn(): string {
-    return "DVD player is turned ON.";
+    return "DVD Player is powered ON.";
   }
 
   public powerOff(): string {
-    return "DVD player is turned OFF.";
+    return "DVD Player is powered OFF.";
   }
 
   public setChannel(channel: number): string {
@@ -33,6 +54,7 @@ class DVD implements Device {
   }
 }
 
+// Abstraction: Remote control
 abstract class RemoteControl {
   protected device: Device;
 
@@ -45,6 +67,7 @@ abstract class RemoteControl {
   public abstract changeChannel(channel: number): string;
 }
 
+// Refined abstraction: Basic remote control
 class BasicRemote extends RemoteControl {
   public turnOn(): string {
     return this.device.powerOn();
@@ -59,6 +82,7 @@ class BasicRemote extends RemoteControl {
   }
 }
 
+// Refined abstraction: Advanced remote control with additional features
 class AdvancedRemote extends RemoteControl {
   public turnOn(): string {
     return this.device.powerOn();
@@ -78,12 +102,15 @@ class AdvancedRemote extends RemoteControl {
   }
 }
 
+// Client code
 function main() {
+  // Create device instances (implementations)
   const tv = new TV();
-  const dvd = new DVD();
+  const dvdPlayer = new DVD();
 
+  // Create remote controls (abstractions) and bridge them to devices
   const basicRemoteForTV = new BasicRemote(tv);
-  const advancedRemoteForDVD = new AdvancedRemote(dvd);
+  const advancedRemoteForDVD = new AdvancedRemote(dvdPlayer);
 
   // Use the basic remote to control the TV
   console.log("Using Basic Remote for TV:");
@@ -101,4 +128,5 @@ function main() {
   console.log(advancedRemoteForDVD.turnOff());
 }
 
+// Run the program
 main();
