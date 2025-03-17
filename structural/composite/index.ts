@@ -1,6 +1,7 @@
 /*
 
 📌 Definition
+
 The Composite Pattern is a structural design pattern that lets you treat individual objects and compositions of objects uniformly. It organizes objects into a tree structure to represent part-whole hierarchies, making it easy to work with both single elements and groups of elements using the same interface.
 
 Key Idea: Treat a group of objects (composite) the same way as an individual object (leaf).
